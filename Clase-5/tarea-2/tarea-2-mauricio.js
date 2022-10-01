@@ -4,19 +4,17 @@
 // vas a crear un botón de acción que una vez que lo apretás, va a
 // mostrar toda la información junta en un campo de texto
 // Y va a cambiar el <h1> para decir "Bienvenido, nombreDeUsuario"!
-
-document.querySelector('#enviar-informacion').onclick = function () {
-    const $primerNombre = document.querySelector('#nombre-usuario').value;
-    const $segundoNombre = document.querySelector('#segundo-nombre-usuario').value;
-    const $apellidoUsuario = document.querySelector('#apellido-usuario').value;
-    const $edadUsuario = Number(document.querySelector('#edadUsuario').value);
-
-    function conseguirInfomarcionUsuario($primerNombre, $segundoNombre, $edadUsuario, $apellidoUsuario) {
-        return `Bienvenido!, ${$primerNombre} ${$segundoNombre} ${$apellidoUsuario} de ${$edadUsuario} años `;
-    }
-
+const $botonEnviar = document.querySelector('#enviar-informacion');
+const saludoUsuario = document.querySelector('#saludo')
+$botonEnviar.onclick = function () {
+    event.preventDefault();
+    const primerNombre = document.querySelector('#nombre-usuario').value;
+    const segundoNombre = document.querySelector('#segundo-nombre-usuario').value;
+    const apellidoUsuario = document.querySelector('#apellido-usuario').value;
+    const edadUsuario = Number(document.querySelector('#edad-usuario').value);
+    saludoUsuario.textContent = `Bienvenido! ${primerNombre} ${segundoNombre} ${apellidoUsuario} de ${edadUsuario} años`
 };
 document.querySelector('#reset-informacion').onclick = function () {
-    return '';
+    return saludoUsuario.textContent = 'Bienvenido/a';
 }
 
