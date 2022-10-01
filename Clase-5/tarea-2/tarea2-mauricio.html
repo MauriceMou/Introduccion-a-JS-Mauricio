@@ -1,0 +1,47 @@
+<!--
+//TAREA: En otro archivo html (no Index) y otro archivo js (no tarea-clase-5.js),
+// creá un formulario que capture el primer nombre, segundo nombre, apellido/s y edad del usuario
+// también vamos a crear un <h1> que diga Bienvenido!
+// vas a crear un botón de acción que una vez que lo apretás, va a
+// mostrar toda la información junta en un campo de texto
+// Y va a cambiar el <h1> para decir "Bienvenido, nombreDeUsuario"!
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase5-tarea2</title>
+</head>
+
+<body>
+    <header>
+        <strong>
+            <h2>TAREA #2 CLASE 5</h2>
+        </strong>
+        <strong>
+            <h1 id="saludo">Bienvenido/a</h1>
+        </strong>
+    </header>
+    <form>
+        <label for="nombre-usuario">Ingrese su nombre</label>
+        <input type="text" id="nombre-usuario" />
+
+        <label for="segundo-nombre-usuario">Ingrese su segundo nombre</label>
+        <input type="text" id="segundo-nombre-usuario" />
+        <p>
+            <label for="apellido-usuario">Ingrese su apellido</label>
+            <input type="text" id="apellido-usuario" />
+
+            <label for="edad-usuario">Ingrese su edad</label>
+            <input type="number" id="edad-usuario" placeholder="Ej: 30" />
+        </p>
+        <button id="enviar-informacion">Enviar</button>
+        <button type="reset" id="reset-informacion">Borrar</button>
+    </form>
+    <script src="tarea-2-mauricio.js"></script>
+</body>
+
+</html>
