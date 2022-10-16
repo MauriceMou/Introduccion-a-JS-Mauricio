@@ -94,5 +94,5 @@ botonCalcular.onclick = function () {
 };
 botonReset.onclick = function () {
     document.querySelector('h2').innerHTML = '';
-    document.querySelector('h3').innerHTML = '';
+    document.querySelector('#resultado').innerHTML = '';
 };
