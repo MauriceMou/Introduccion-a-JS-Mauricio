@@ -10,44 +10,44 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 const $botonAgregar = document.querySelector('#agregar');
 const $botonCalcular = document.querySelector('#calcular');
 let id = 1;
-$botonAgregar.onclick = function() {
+$botonAgregar.onclick = function () {
+	const elemID = id
+
 	const label = document.createElement('label');
 	const input = document.createElement('input');
 	const form = document.querySelector('#formulario');
 	const br = document.createElement('br');
 	const botonQuitar = document.createElement('button');
 
-	label.textContent = `Integrante N°${id}:`;
-	label.id = 'labelAnual' + id;
+	label.textContent = `Integrante N°${elemID}:`;
+	label.id = 'labelAnual' + elemID;
 	input.className = 'salariosAnuales';
-	input.id = 'inputAnual' + id;
+	input.id = 'inputAnual' + elemID;
 	input.type = 'number';
 	input.placeholder = 'Ingrese salario anual';
 	br.id = 'br' + id;
 	botonQuitar.textContent = 'Quitar';
-	botonQuitar.id = 'quitar' + id;
-	botonQuitar.onclick = function() {
-		borrarTodo(id);
-		return false;
+	botonQuitar.id = 'quitar' + elemID;
+	botonQuitar.onclick = function () {
+		borrar(elemID);
 
 	};
 	form.append(label, input, botonQuitar, br);
 	id++;
 };
-
-function borrarTodo() {
-	const $botonQuitarPorID = document.querySelector('#quitar' + (id - 1));
+const arrayDeleted = []
+function borrar(id) {
+	const $botonQuitarPorID = document.querySelector('#quitar' + id);
 	$botonQuitarPorID.remove();
-	const $labelPorID = document.querySelector('#labelAnual' + (id - 1));
+	const $labelPorID = document.querySelector('#labelAnual' + id);
 	$labelPorID.remove();
-	const $inputPorID = document.querySelector('#inputAnual' + (id - 1));
+	const $inputPorID = document.querySelector('#inputAnual' + id);
 	$inputPorID.remove();
-	const $br = document.querySelector('#br' + (id - 1));
+	const $br = document.querySelector('#br' + id);
 	$br.remove();
-	id--;
-	return false;
+	arrayDeleted.push(id)
 }
-$botonCalcular.onclick = function() {
+$botonCalcular.onclick = function () {
 	const arraySalariosAnuales = [];
 	const nodoSalariosAnuales = document.querySelectorAll('.salariosAnuales');
 	for (let i = 0; i < nodoSalariosAnuales.length; i++) {
@@ -64,8 +64,8 @@ $botonCalcular.onclick = function() {
 	}
 	const anualFinal = acumuladorAnual / arraySalariosAnuales.length;
 
-	const mesesAnio = 12
-	const mensualFinal = anualFinal / mesesAnio
+	const mesesAnio = 12;
+	const mensualFinal = anualFinal / mesesAnio;
 
 	const resultadoMayor = Math.max(...arraySalariosAnuales);
 	$mayor.textContent = `El salario anual mayor es $${resultadoMayor}`;
@@ -75,6 +75,5 @@ $botonCalcular.onclick = function() {
 
 	$promedioAnual.textContent = `El salario anual promedio es $${anualFinal}`;
 
-	$promedioMensual.textContent = `El salario mensual promedio es $${mensualFinal}`
+	$promedioMensual.textContent = `El salario mensual promedio es $${mensualFinal}`;
 }
-
