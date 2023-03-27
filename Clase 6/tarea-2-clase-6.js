@@ -51,7 +51,10 @@ $botonCalcular.onclick = function() {
 	const arraySalariosAnuales = [];
 	const nodoSalariosAnuales = document.querySelectorAll('.salariosAnuales');
 	for (let i = 0; i < nodoSalariosAnuales.length; i++) {
-		arraySalariosAnuales[i] = Number(nodoSalariosAnuales[i].value);
+		if(nodoSalariosAnuales[i].value === "") {
+			continue
+		}
+		arraySalariosAnuales.push(Number(nodoSalariosAnuales[i].value))
 	}
 	const $mayor = document.querySelector('#mayor');
 	const $menor = document.querySelector('#menor');
